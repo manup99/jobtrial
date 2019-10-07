@@ -1,0 +1,75 @@
+{%extends 'app/base.html'%}
+{%block content%}
+<main>
+	<div class="container-fluid " style="padding: 0px;margin: 0px">
+		<div class="row">
+
+			<div class="col-md-6 box" style="height: 450px">
+				<img src="https://jobinformation.info/wp-content/uploads/2019/08/recruitment-3942378_1920.jpg" width="100%" height="100%"/>
+			</div>
+			<div class="col-md-6 boxkebahar" style="height:450px;">
+				<h1 style="text-align: center;font-family: 'Bad Script', cursive;">Place to find your kind of job opportunities</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" style="padding: 0px;margin: 0px;">
+		<div class="row">
+			<div class="col-md-4 iconbox">
+					<h1 class="fa fa-user icons" aria-hidden="true"></h1>
+					<h3 style="margin: 30px;font-family: 'Viga', sans-serif;">Register</h3>
+			</div>
+			<div class="col-md-4 iconbox">
+				<h1 class="fa fa-address-card icons" aria-hidden="true"></h1>
+
+					<h3 style="margin: 30px;font-family: 'Viga', sans-serif;">Post</h3>
+			</div>
+			<div class="col-md-4 iconbox">
+					<h1 class="fa fa-users icons" aria-hidden="true"></h1>
+					<h3 style="margin: 30px;font-family: 'Viga', sans-serif;">Hire</h3>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid box2" style="margin:0;padding: 0">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Post jobs and hire suitable employees</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 offset-md-2" style="background: whitesmoke;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+width: 100%;
+margin-top: 80px;
+margin-bottom:50px;padding:30px;">
+
+				{%if request.user.is_authenticated%}
+				{%if jobs%}
+				<h1 style="text-align:center;">Available Jobs</h1>
+				{%for job in jobs%}
+				<hr>
+				<div class="job">
+					<h2 style="font-weight:bold;">{{job.job_heading}}</h2>
+					<h4>{{job.location}}</h4>
+					<h4>Apply By:{{job.start_date}}</h4>
+					<h4>{{job.job_type}}</h4>
+					<h4>Expected Salary:{{job.salary}}</h4>
+				</div>
+				<hr>
+				{%endfor%}
+				{%else%}
+				<h1 style="text-align: center;">You haven't posted any jobs right now</h1>
+				{%endif%}
+				<a href="{%url 'app:postjob'%}"><button class="submit">Post a Job</button></a>
+				{%else%}
+				<h1 style="text-align:center">Login/Register to post a job</h1>
+				<a href="{%url 'app:postjob'%}"><button class="submit">Post a Job</button></a>
+				{%endif%}
+
+			</div>
+		</div>
+	</div>
+</main>
+
+{%endblock%}

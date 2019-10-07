@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light p-3 mb-5 rounded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand" href="{%url 'app:index'%}" style="font-family: 'Grenze', serif;font-size:40px;margin-left:40px;
+
+">job<font color="#00B78B" >Trial</font> </a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            {%if request.user.is_authenticated%}
+            <li class="nav-item active " style="list-style-type:none;margin-right:20px;">
+           <h3 style="margin-top:10px;">Hi {{request.user.username}}</h3>
+        </li>
+            {%endif%}
+        </ul>
+        {%if request.user.is_authenticated%}
+        <li class="nav-item active" style="list-style-type:none;margin-right:20px; ">
+            <a class="nav-link yo" href="{%url 'app:index'%}">Home</a>
+        </li>
+        <li class="nav-item active " style="list-style-type:none;margin-right:20px;">
+            <a class="nav-link yo" href="{%url 'app:postjob'%}">Post A Job</a>
+        </li>
+        <li class="nav-item active " style="list-style-type:none;margin-right:20px;">
+            <a class="nav-link yo" href="{%url 'app:logout'%}">Logout</a>
+        </li>
+
+        {%else%}
+        <li class="nav-item active " style="list-style-type:none;margin-right:20px;">
+            <a class="nav-link yo" href="{%url 'app:login'%}">Login</a>
+        </li>
+        <li class="nav-item active " style="list-style-type:none;margin-right:20px;">
+            <a class="nav-link yo" href="{%url 'app:register'%}">Register</a>
+        </li>
+        {%endif%}
+    </div>
+</nav>

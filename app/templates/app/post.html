@@ -1,0 +1,76 @@
+{%extends 'app/base.html'%}
+{%block content%}
+<main class="forms">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 offset-md-3 yo1">
+				<form method="post">
+					{%csrf_token%}
+					<h1 style="text-align: center;margin-bottom: 10px;font-weight: bold;">Post a Job</h1>
+							<h3>Job Heading</h3>
+			<div class="text">
+				<input type="text" name="job_heading" class="in" required/>
+			</div>
+			<h3>Name of the Organization/Company:</h3>
+			<div class="text">
+				<input type="text" name="company" class="in" required/>
+			</div>
+			
+			<h3>Location</h3>
+			<div class="text">
+			<input type="text" name="location" class="in" required/>
+			</div>
+			<h3>Start Date</h3>
+			<div class="text">
+			<input type="date" placeholder="YYYY-MM-DD" name="start_date" class="in" required/>
+		</div>
+			<h3>Salary</h3>
+			<div class="text">
+			<input type="number" name="salary" class="in" required/>
+			</div>
+			<h3>Apply By</h3>
+			<div class="text">
+			<input type="date" placeholder="YYYY-MM-DD" name="apply_by" class="in" required/>
+			</div>
+			<h3>Job Type</h3>
+			<div class="text">
+			<select class="in" name="job_type" required>
+ 			 	<option value="Full Time">Full Time Job</option>
+ 				<option value="Part Time">Part Time Job</option>
+  				<option value="Work From Home">Work From Home</option>
+  				<option value="Internship">Internship</option>
+			</select>
+		</div>
+			<h3>No. of Jobs available</h3>
+			<div class="text">
+			<input class="in" type="number" name="available" required/>
+		</div>
+			<h3>About the Company/Organization</h3>
+			<div class="text">
+			<textarea class="in1" rows="4" cols="50" name="about_company" required></textarea>
+			</div>
+			<h3>About the job</h3>
+			<div class="text">
+			<textarea class="in1" rows="4" cols="50" name="about_job" required></textarea>
+		</div>
+			<h3>Skills Required</h3>
+			<div class="text">
+			<textarea class="in1" rows="4" cols="50" name="skills" required></textarea>
+		</div>
+		
+			<h3>Who can apply</h3>
+			<div class="text">
+			<textarea class="in1" rows="4" cols="50" name="requirements" required></textarea>
+		</div>
+			<h3>Why us?</h3>
+			<div class="text">
+			<textarea class="in1" rows="4" cols="50" name="why_us" required></textarea>
+		</div>
+
+		<button type="submit" class="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
+{%endblock%}
